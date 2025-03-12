@@ -1,6 +1,8 @@
 const { isUtf8 } = require('buffer');
 const { log } = require('console');
 const fs = require('fs');
+const os = require('os');
+
 // fs.writeFileSync('./test.txt',"Hello File in Node js");
 // fs.writeFile('./test.txt',"Async function",(err)=>{});
 
@@ -30,5 +32,9 @@ const fs = require('fs');
 
 
 // fs.mkdirSync("./First/");
-fs.mkdirSync("First1/a/b",{recursive:true});
+// fs.mkdirSync("First1/a/b",{recursive:true});
+
+
+// console.log(os.cpus().length);
+
 
