@@ -1,2 +1,1 @@
-
-    return res.users;
+users
