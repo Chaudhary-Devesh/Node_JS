@@ -8,6 +8,19 @@ const port=8000;
 
 app.use(express.urlencoded({extended:false}));
 
+app.use((req,res,next)=>{
+    fs.appendFile("restfull.txt",`\n${Date.now()}  ${req.ip}  ${req.method} ${req.path}`,(err,dat)=>{
+        next()
+    });
+});
+
+
+// app.use((res,req,next)=>{
+//     console.log("middleware 2");
+//     next();
+// });
+
+
 app.get("/users",(req,res)=>{
     const html=`
     <ol>
@@ -49,6 +62,7 @@ app.get('/api/users',(req,res)=>{
         return res.json({status:"success",id:users.length});
     });
 }).patch((req,res)=>{
+    
     return res.json({"status":"pending"});
 }).delete((req,res)=>{
     return res.json({"status":"pending"});
